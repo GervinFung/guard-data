@@ -26,33 +26,33 @@ See [example.dart](example/parse_data_example.dart)
 ## Usage
 
 ```dart
-late final dynamic json = // some JSON data
+final dynamic json = // some JSON data
 // parse
-late final booleanParser = Parse(json.isHealthy).asBoolean();
+final booleanParser = Parse(json.isHealthy).asBoolean();
 
 // actions
 // 1. Return null if it's truly nullable, I won't recommend to use it to represent emptiness
-late final isHealthy = booleanParser.elseGetNull();
+final isHealthy = booleanParser.elseGetNull();
 
 // 2. Return alternative value if it cannot be parsed
-late final isHealthy = booleanParser.elseGet(false);
+final isHealthy = booleanParser.elseGet(false);
 
 // 3. Lazily compute and return alternative value if it's too expenstive to be computed and if value cannot be parsed
-late final isHealthy = booleanParser.elseLazyGet(() => false);
+final isHealthy = booleanParser.elseLazyGet(() => false);
 
 // 4. Throw error when you are really sure that the field is the type you want and will always be present in JSON
 // Again, I would recommend to use it when you wanna throw an exception with custom message
 // As Dart will by default throws `TypeError` if data type doesnt match
-late final isHealthy = booleanParser.elseThrow('damn son');
+final isHealthy = booleanParser.elseThrow('damn son');
 
 // 5. Return Wrapper to check if it's parseable, if not, then you handle the alternative action
 // The main purpose of this function is to provide developer a more flexible way of handling
 // the situation themselves, if it cannot be parsed
 // NOTE: If you use this, remember to call `isParseable` first
 // Otherwise, you will get an exception, whenever `unwrap` is called and it's not parseable
-late final booleanWrapper = booleanParser.elseGetWrapper();
+final booleanWrapper = booleanParser.elseGetWrapper();
 if (booleanUnion.isParseable()) {
-    late final isHealthy = booleanWrapper.unwrap()
+    final isHealthy = booleanWrapper.unwrap()
 } else {
     // do something else
 }

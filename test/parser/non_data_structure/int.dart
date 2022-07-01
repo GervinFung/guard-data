@@ -7,7 +7,7 @@ void testIntParser() => group('Int Parser', () {
         expect(Parse(2).asInt().elseGet(1), 2);
         expect(Parse(20000).asInt().elseLazyGet(() => 1), 20000);
         expect(Parse(0).asInt().elseThrow('joke'), 0);
-        late final union = Parse(3).asInt().elseGetWrapper();
+        final union = Parse(3).asInt().elseGetWrapper();
         expect(union.isParseable(), true);
         expect(union.unwrap(), 3);
       });
@@ -24,7 +24,7 @@ void testIntParser() => group('Int Parser', () {
                 .asInt()
                 .elseThrow('array aint int'),
             throwsException);
-        late final union = Parse(null).asInt().elseGetWrapper();
+        final union = Parse(null).asInt().elseGetWrapper();
         expect(union.isParseable(), false);
         expect(union.unwrap, throwsException);
       });

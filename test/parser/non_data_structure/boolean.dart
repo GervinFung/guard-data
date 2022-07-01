@@ -7,7 +7,7 @@ void testBooleanParser() => group('Boolean Parser', () {
         expect(Parse(false).asBoolean().elseGet(true), false);
         expect(Parse(false).asBoolean().elseLazyGet(() => true), false);
         expect(Parse(true).asBoolean().elseThrow('joke'), true);
-        late final union = Parse(false).asBoolean().elseGetWrapper();
+        final union = Parse(false).asBoolean().elseGetWrapper();
         expect(union.isParseable(), true);
         expect(union.unwrap(), false);
       });
@@ -25,7 +25,7 @@ void testBooleanParser() => group('Boolean Parser', () {
                 .asBoolean()
                 .elseThrow('array aint boolean'),
             throwsException);
-        late final union = Parse('adios').asBoolean().elseGetWrapper();
+        final union = Parse('adios').asBoolean().elseGetWrapper();
         expect(union.isParseable(), false);
         expect(union.unwrap, throwsException);
       });

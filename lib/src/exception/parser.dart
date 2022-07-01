@@ -1,5 +1,4 @@
-class ParserException {
-  ParserException._();
-
-  static Exception raise(final String message) => Exception(message);
+class ParserException implements Exception {
+  final String message;
+  ParserException(this.message);
 }

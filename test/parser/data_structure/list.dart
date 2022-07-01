@@ -37,7 +37,7 @@ void testListParser() => group('List Parser', () {
                 )
                 .elseGet(List<Temp>.empty()),
             [Temp(''), Temp('1'), Temp('2')]);
-        late final union = Parse([1, 2, 3])
+        final union = Parse([1, 2, 3])
             .asList<int>(((dynamic element) => element as int))
             .elseGetWrapper();
         expect(union.isParseable(), true);
@@ -76,7 +76,7 @@ void testListParser() => group('List Parser', () {
                     predicate: (dynamic element) => element is int)
                 .elseThrow('number aint list'),
             throwsException);
-        late final union = Parse(null).asBoolean().elseGetWrapper();
+        final union = Parse(null).asBoolean().elseGetWrapper();
         expect(union.isParseable(), false);
         expect(union.unwrap, throwsException);
       });

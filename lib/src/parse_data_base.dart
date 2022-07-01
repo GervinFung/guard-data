@@ -6,7 +6,7 @@ typedef DynamicList = List<dynamic>;
 typedef DynamicMap = Map<dynamic, dynamic>;
 
 class Parse {
-  late final dynamic _t;
+  final dynamic _t;
   Parse(this._t);
 
   Else<bool> asBoolean() => BooleanParser(_t).parse();

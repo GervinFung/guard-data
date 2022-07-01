@@ -8,7 +8,7 @@ void testDoubleParser() => group('Double Parser', () {
         expect(Parse(20000.22).asDouble().elseLazyGet(() => 3.3), 20000.22);
         expect(
             Parse(1000.99999999).asDouble().elseThrow('joke'), 1000.99999999);
-        late final union = Parse(3.142).asDouble().elseGetWrapper();
+        final union = Parse(3.142).asDouble().elseGetWrapper();
         expect(union.isParseable(), true);
         expect(union.unwrap(), 3.142);
       });
@@ -25,7 +25,7 @@ void testDoubleParser() => group('Double Parser', () {
                 .asDouble()
                 .elseThrow('array aint double'),
             throwsException);
-        late final union = Parse(null).asDouble().elseGetWrapper();
+        final union = Parse(null).asDouble().elseGetWrapper();
         expect(union.isParseable(), false);
         expect(union.unwrap, throwsException);
       });
