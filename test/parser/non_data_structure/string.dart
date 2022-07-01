@@ -7,7 +7,7 @@ void testStringParser() => group('String Parser', () {
         expect(Parse('ho').asString().elseGet('hoho'), 'ho');
         expect(Parse('1').asString().elseLazyGet(() => ''), '1');
         expect(Parse('asd').asString().elseThrow('joke'), 'asd');
-        late final union = Parse('').asString().elseGetWrapper();
+        final union = Parse('').asString().elseGetWrapper();
         expect(union.isParseable(), true);
         expect(union.unwrap(), '');
       });
@@ -28,7 +28,7 @@ void testStringParser() => group('String Parser', () {
                 .asString()
                 .elseThrow('array aint string'),
             throwsException);
-        late final union = Parse(false).asString().elseGetWrapper();
+        final union = Parse(false).asString().elseGetWrapper();
         expect(union.isParseable(), false);
         expect(union.unwrap, throwsException);
       });

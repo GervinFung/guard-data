@@ -1,5 +1,5 @@
 class Temp {
-  late final String s;
+  final String s;
 
   Temp(this.s);
 

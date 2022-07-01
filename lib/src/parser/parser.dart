@@ -2,7 +2,7 @@ import 'package:parse_data/src/option/else.dart';
 import 'package:parse_data/src/typedef/lazy_load.dart';
 
 class NonDataStructureParser<T> {
-  late final Else<T> _elseOption;
+  final Else<T> _elseOption;
 
   NonDataStructureParser._(this._elseOption);
   NonDataStructureParser(final dynamic t)
@@ -12,7 +12,7 @@ class NonDataStructureParser<T> {
 }
 
 class DataStructureParser<T> {
-  late final Else<T> _elseOption;
+  final Else<T> _elseOption;
 
   DataStructureParser._(this._elseOption);
   DataStructureParser(final ParameterlessLazyLoad<T> t,

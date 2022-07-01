@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:parse_data/parse_data.dart';
 
 class Example {
-  late final String s;
+  final String s;
 
   Example(this.s);
 
@@ -17,16 +17,16 @@ class Example {
 void main() {
   // boolean parser, all return `else` methods
   // are applicable to string, num, double and int parser
-  late final booleanParser = Parse(true).asBoolean();
+  final booleanParser = Parse(true).asBoolean();
   print(booleanParser.elseGetNull());
   print(booleanParser.elseGet(false));
   print(booleanParser.elseLazyGet(() => false));
   print(booleanParser.elseThrow('damn son'));
-  late final booleanWrapper = booleanParser.elseGetWrapper();
+  final booleanWrapper = booleanParser.elseGetWrapper();
   print(!booleanWrapper.isParseable() ? '' : booleanWrapper.unwrap());
 
   // the only parser for a data structure
-  late final listParser = Parse(
+  final listParser = Parse(
           json.decode(json.encode([Example('0'), Example('1'), Example('2')])))
       .asListWithCustomPredicate<Example>(
     predicate: ((dynamic element) => element['s'] is String),
@@ -37,6 +37,6 @@ void main() {
   print(listParser.elseGetNull());
   print(listParser.elseGet(List<Example>.empty()));
   print(listParser.elseThrow('damn son'));
-  late final listWrapper = listParser.elseGetWrapper();
+  final listWrapper = listParser.elseGetWrapper();
   print(!listWrapper.isParseable() ? '' : listWrapper.unwrap());
 }

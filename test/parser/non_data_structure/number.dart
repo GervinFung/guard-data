@@ -7,7 +7,7 @@ void testNumberParser() => group('Number Parser', () {
         expect(Parse(2.2).asNumber().elseGet(1), 2.2);
         expect(Parse(20000).asNumber().elseLazyGet(() => 100), 20000);
         expect(Parse(1000).asNumber().elseThrow('joke'), 1000);
-        late final union = Parse(3.241).asNumber().elseGetWrapper();
+        final union = Parse(3.241).asNumber().elseGetWrapper();
         expect(union.isParseable(), true);
         expect(union.unwrap(), 3.241);
       });
@@ -24,7 +24,7 @@ void testNumberParser() => group('Number Parser', () {
                 .asNumber()
                 .elseThrow('array aint number'),
             throwsException);
-        late final union = Parse(null).asNumber().elseGetWrapper();
+        final union = Parse(null).asNumber().elseGetWrapper();
         expect(union.isParseable(), false);
         expect(union.unwrap, throwsException);
       });
