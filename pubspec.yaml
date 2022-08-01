@@ -1,10 +1,9 @@
-name: parse_data
+name: cast_data
 description: >
-  Safely parse dynamic data, especially JSON data as intended type
-  and take alternative action in case data cannot be parsed.
-  Avoiding implicit down-casting
+  Safely cast dynamic data, especially JSON data as intended type by performing data validation first
+  and take alternative action in case data cannot be casted.
 version: 0.0.0
-homepage: https://github.com/P-YNPM/parse-data
+homepage: https://github.com/P-YNPM/cast-data
 
 environment:
   sdk: ">=2.17.3 <3.0.0"
