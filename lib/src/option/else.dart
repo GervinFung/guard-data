@@ -1,16 +1,16 @@
-import 'package:parse_data/src/exception/parser.dart';
-import 'package:parse_data/src/typedef/lazy_load.dart';
+import 'package:cast_data/src/exception/cast.dart';
+import 'package:cast_data/src/typedef/lazy_load.dart';
 
 class Wrapper<T> {
-  final bool _isParseable;
+  final bool _isCastable;
   final ParameterlessLazyLoad<T> _t;
 
-  Wrapper(this._isParseable, this._t);
+  Wrapper(this._isCastable, this._t);
 
-  bool isParseable() => _isParseable;
+  bool isCastable() => _isCastable;
 
-  T unwrap() => !_isParseable ? throw ParserException('''
-          cannot unwrap as $_t cannot be parsed as $T, you should call `isParseable` method before unwrapping
+  T unwrap() => !_isCastable ? throw CastException('''
+          cannot unwrap as $_t cannot be casted as $T, you should call `isCastable` method before unwrapping
           ''') : _t();
 }
 
@@ -29,5 +29,5 @@ class Else<T> {
   T elseGet<A extends T>(final A a) => _isMatchingType() ? _t() : a;
 
   T elseThrow(final String message) =>
-      _isMatchingType() ? _t() : throw ParserException(message);
+      _isMatchingType() ? _t() : throw CastException(message);
 }
