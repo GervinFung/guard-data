@@ -24,7 +24,8 @@ class Else<T> {
 
   T? elseGetNull() => _isMatchingType() ? _t() : null;
 
-  T elseLazyGet<A extends T>(final ParameterlessLazyLoad<A> a) => elseGet(a());
+  T elseLazyGet<A extends T>(final ParameterlessLazyLoad<A> a) =>
+      _isMatchingType() ? _t() : a();
 
   T elseGet<A extends T>(final A a) => _isMatchingType() ? _t() : a;
 
