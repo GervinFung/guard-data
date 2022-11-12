@@ -1,22 +1,22 @@
-import 'package:cast_data/src/option/else.dart';
-import 'package:cast_data/src/typedef/lazy_load.dart';
+import 'package:guard_data/src/option/else.dart';
+import 'package:guard_data/src/typedef/lazy_load.dart';
 
-class PrimitiveCaster<T> {
+class PrimitiveGuarder<T> {
   final Else<T> _elseOption;
 
-  PrimitiveCaster._(this._elseOption);
-  PrimitiveCaster(final dynamic t) : this._(Else(() => t as T, () => t is T));
+  PrimitiveGuarder._(this._elseOption);
+  PrimitiveGuarder(final dynamic t) : this._(Else(() => t as T, () => t is T));
 
-  Else<T> cast() => _elseOption;
+  Else<T> guard() => _elseOption;
 }
 
-class DataStructureCaster<T> {
+class DataStructureGuarder<T> {
   final Else<T> _elseOption;
 
-  DataStructureCaster._(this._elseOption);
-  DataStructureCaster(final ParameterlessLazyLoad<T> t,
+  DataStructureGuarder._(this._elseOption);
+  DataStructureGuarder(final ParameterlessLazyLoad<T> t,
       final ParameterlessLazyLoad<bool> isMatchingType)
       : this._(Else(t, isMatchingType));
 
-  Else<T> cast() => _elseOption;
+  Else<T> guard() => _elseOption;
 }

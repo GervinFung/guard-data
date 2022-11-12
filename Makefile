@@ -7,7 +7,7 @@ build:
 	dart build
 
 run:
-	dart run example/cast_data_example.dart
+	dart run example/guard_data_example.dart
 
 format:
 	dart format .

@@ -1,21 +1,21 @@
-import 'package:cast_data/src/cast/caster.dart';
+import 'package:guard_data/src/guard/guarder.dart';
 
-class BooleanCaster extends PrimitiveCaster<bool> {
-  BooleanCaster(super.t);
+class BooleanGuarder extends PrimitiveGuarder<bool> {
+  BooleanGuarder(super.t);
 }
 
-class StringCaster extends PrimitiveCaster<String> {
-  StringCaster(super.t);
+class StringGuarder extends PrimitiveGuarder<String> {
+  StringGuarder(super.t);
 }
 
-class IntCaster extends PrimitiveCaster<int> {
-  IntCaster(super.t);
+class IntGuarder extends PrimitiveGuarder<int> {
+  IntGuarder(super.t);
 }
 
-class DoubleCaster extends PrimitiveCaster<double> {
-  DoubleCaster(super.t);
+class DoubleGuarder extends PrimitiveGuarder<double> {
+  DoubleGuarder(super.t);
 }
 
-class NumberCaster extends PrimitiveCaster<num> {
-  NumberCaster(super.t);
+class NumberGuarder extends PrimitiveGuarder<num> {
+  NumberGuarder(super.t);
 }

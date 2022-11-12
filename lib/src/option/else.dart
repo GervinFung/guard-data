@@ -1,16 +1,16 @@
-import 'package:cast_data/src/exception/cast.dart';
-import 'package:cast_data/src/typedef/lazy_load.dart';
+import 'package:guard_data/src/exception/guard.dart';
+import 'package:guard_data/src/typedef/lazy_load.dart';
 
 class Wrapper<T> {
-  final bool _isCastable;
+  final bool _isGuardable;
   final ParameterlessLazyLoad<T> _t;
 
-  Wrapper(this._isCastable, this._t);
+  Wrapper(this._isGuardable, this._t);
 
-  bool isCastable() => _isCastable;
+  bool isGuardable() => _isGuardable;
 
-  T unwrap() => !_isCastable ? throw CastException('''
-          cannot unwrap as $_t cannot be casted as $T, you should call `isCastable` method before unwrapping
+  T unwrap() => !_isGuardable ? throw GuardException('''
+          cannot unwrap as $_t cannot be guarded as $T, you should call `isGuardable` method before unwrapping
           ''') : _t();
 }
 
@@ -30,5 +30,5 @@ class Else<T> {
   T elseGet<A extends T>(final A a) => _isMatchingType() ? _t() : a;
 
   T elseThrow(final String message) =>
-      _isMatchingType() ? _t() : throw CastException(message);
+      _isMatchingType() ? _t() : throw GuardException(message);
 }
