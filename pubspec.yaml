@@ -1,9 +1,9 @@
-name: cast_data
+name: guard_data
 description: >
-  Safely cast dynamic data, especially JSON data as intended type by performing data validation first
-  and take alternative action in case data cannot be casted.
+  Safely guard dynamic data, especially JSON data as intended type by performing data validation first
+  and take alternative action in case data cannot be guarded.
 version: 0.0.0
-homepage: https://github.com/P-YNPM/cast-data
+homepage: https://github.com/P-YNPM/guard-data
 
 environment:
   sdk: ">=2.17.3 <3.0.0"

@@ -1,4 +1,4 @@
-class CastException implements Exception {
+class GuardException implements Exception {
   final String message;
-  CastException(this.message);
+  GuardException(this.message);
 }
